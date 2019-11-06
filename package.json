@@ -1,6 +1,6 @@
 {
-  "name": "@innocells/branch-naming-check",
-  "version": "1.0.1",
+  "name": "branch-naming-check",
+  "version": "1.0.2",
   "description": "Enforce naming conventions on git branches",
   "main": "index.js",
   "scripts": {
