@@ -3,7 +3,7 @@
 const { currentBranchName } = require("./lib/git-utils");
 
 if (!process.argv[2]) {
-  console.error("Usage: branch-naming-check <regexp>");
+  console.error("Usage: branch-naming-check <regexp> <example-branch-name>");
   process.exitCode = 1;
   return;
 }
@@ -23,9 +23,8 @@ currentBranchName().then(branchName => {
   } else {
     process.exitCode = 1;
     console.error(
-      `Current Git branch name: "${branchName}" \n` +
-        `Doesn't match supplied RegExp: "${validBranchNameRegExp.toString()}"\n\n` +
-        `YOU HAVE BEEN REPORTED TO THE AUTHORITIES\n`
+      `Current Git branch name: "${branchName}" is not valid. \n\n` +
+        `Please use the following format for the branch name: ${process.argv[3] ? process.argv[3] : validBranchNameRegExp.toString()}\n\n`
     );
   }
 });
